@@ -8,7 +8,7 @@
         :asdf/upgrade :asdf/system-registry :asdf/operate :asdf/bundle)
   ;; Happily, all those implementations all have the same module-provider hook interface.
   #+(or abcl clasp cmucl clozure ecl mezzano mkcl sbcl)
-  (:import-from #+abcl :sys #+(or clasp cmucl ecl) :ext #+clozure :ccl #+mkcl :mk-ext #+sbcl sb-ext #+mezzano :sys.int
+  (:import-from #+abcl :sys #+(or clasp cmucl ecl) :ext #+clozure :ccl #+mkcl :mk-ext #+sbcl sb-ext #+mezzano :mezzano.extensions
                 #:*module-provider-functions*
                 #+ecl #:*load-hooks*)
   #+(or clasp mkcl) (:import-from :si #:*load-hooks*))

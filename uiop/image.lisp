@@ -140,8 +140,7 @@ This is designed to abstract away the implementation specific quit forms."
           (dbg:*debug-print-length* *print-length*))
       (dbg:bug-backtrace nil))
     #+mezzano
-    (let ((*standard-output* stream))
-      (sys.int::backtrace count))
+    (mezzano.debug:backtrace :stream stream :limit count)
     #+sbcl
     (sb-debug:print-backtrace :stream stream :count (or count most-positive-fixnum))
     #+xcl

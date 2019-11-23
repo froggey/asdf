@@ -236,9 +236,7 @@ then returning the non-empty string value of the variable"
         (multiple-value-bind (major minor) (sct:get-system-version "System")
           (format nil "~D.~D" major minor))
         #+mcl (subseq s 8) ; strip the leading "Version "
-        #+mezzano (format nil "~A-~D"
-                          (subseq s 0 (position #\space s)) ; strip commit hash
-                          sys.int::*llf-version*)
+        #+mezzano (mezzano.extensions:lisp-version-string)
         ;; seems like there should be a shorter way to do this, like ACALL.
         #+mkcl (or
                 (let ((fname (find-symbol* '#:git-describe-this-mkcl :mkcl nil)))
